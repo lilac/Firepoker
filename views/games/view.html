@@ -18,6 +18,12 @@
         <h5><span ng-model="game.estimate.title" contenteditable="true" no-line-breaks="true">{{game.estimate.title}}</span></h5>
         <p><span ng-model="game.estimate.notes" contenteditable="true">{{game.estimate.notes}}</span></p>
       </div>
+      <!-- Card deck -->
+      <div ng-show="showCardDeck" class="well well-sm">
+        <ul class="list-inline">
+          <li ng-repeat="card in decks[game.deck]"><a class="btn btn-default" href="" ng-click="estimate(card)">{{card}}</a></li>
+        </ul>
+      </div>
       <!-- Estimates -->
       <div class="well">
         <div ng-hide="game.estimate.results">
@@ -32,12 +38,6 @@
             </li>
           </ul>
         </div>
-      </div>
-      <!-- Card deck -->
-      <div ng-show="showCardDeck" class="well well-sm">
-        <ul class="list-inline">
-          <li ng-repeat="card in decks[game.deck]"><a class="btn btn-default" href="" ng-click="estimate(card)">{{card}}</a></li>
-        </ul>
       </div>
       <!-- Select an estimate -->
       <div ng-show="showSelectEstimate" class="well">
